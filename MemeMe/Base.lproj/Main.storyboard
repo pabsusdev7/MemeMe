@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Meme Editor View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,13 +39,13 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AmE-Qn-YwF">
-                                <rect key="frame" x="100" y="138" width="213" height="17"/>
+                                <rect key="frame" x="0.0" y="138" width="414" height="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jBC-sd-F25">
-                                <rect key="frame" x="100" y="746" width="213" height="17"/>
+                                <rect key="frame" x="0.0" y="746" width="414" height="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -54,7 +54,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="MeMe Editor" id="5lC-Fn-KIf">
-                                        <barButtonItem key="leftBarButtonItem" title="Share" id="UTb-24-IWz">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="UTb-24-IWz">
                                             <connections>
                                                 <action selector="shareMeme:" destination="BYZ-38-t0r" id="WVE-1e-SSK"/>
                                             </connections>
@@ -67,17 +67,17 @@
                         <constraints>
                             <constraint firstItem="CNu-dI-Adr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7B2-7f-4Ah"/>
                             <constraint firstItem="CNu-dI-Adr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="8g1-gU-YOq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AmE-Qn-YwF" secondAttribute="trailing" constant="101" id="Bke-9i-bh5"/>
-                            <constraint firstItem="jBC-sd-F25" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="Cnl-OV-Mkh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AmE-Qn-YwF" secondAttribute="trailing" id="Bke-9i-bh5"/>
+                            <constraint firstItem="jBC-sd-F25" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Cnl-OV-Mkh"/>
                             <constraint firstItem="CNu-dI-Adr" firstAttribute="top" secondItem="8f9-mo-rT1" secondAttribute="bottom" id="DVw-03-BOF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8f9-mo-rT1" secondAttribute="trailing" id="EWl-hv-ih4"/>
                             <constraint firstItem="CNu-dI-Adr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HWw-wf-26L"/>
                             <constraint firstItem="CNu-dI-Adr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Oev-bE-Cjl"/>
                             <constraint firstItem="0En-N0-OYT" firstAttribute="leading" secondItem="CNu-dI-Adr" secondAttribute="leading" id="QiJ-3p-tfs"/>
-                            <constraint firstItem="AmE-Qn-YwF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="X66-ip-hcH"/>
+                            <constraint firstItem="AmE-Qn-YwF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="X66-ip-hcH"/>
                             <constraint firstItem="8f9-mo-rT1" firstAttribute="top" secondItem="0En-N0-OYT" secondAttribute="bottom" id="Zcn-fL-hli"/>
                             <constraint firstItem="0En-N0-OYT" firstAttribute="trailing" secondItem="CNu-dI-Adr" secondAttribute="trailing" id="bax-O0-RxQ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jBC-sd-F25" secondAttribute="trailing" constant="101" id="dDn-hw-avY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jBC-sd-F25" secondAttribute="trailing" id="dDn-hw-avY"/>
                             <constraint firstItem="AmE-Qn-YwF" firstAttribute="top" secondItem="8f9-mo-rT1" secondAttribute="top" constant="50" id="fFA-j6-ck5">
                                 <variation key="heightClass=compact" constant="20"/>
                             </constraint>
