@@ -13,10 +13,15 @@ UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var photoAlbumButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
+    var meme: Meme!
     
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.strokeColor: UIColor.black,
@@ -49,6 +54,17 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         super.viewWillAppear(animated)
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         subscribeToKeyboardNotifications()
+        
+        if let meme = self.meme {
+            
+            topTextField.text = meme.topText
+            bottomTextField.text = meme.bottomText
+            imagePickerView?.image = meme.originalImage
+            topTextField.isEnabled = false
+            bottomTextField.isEnabled = false
+            toolBar.isHidden = true
+            navigationBar.isHidden = true
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -118,6 +134,11 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         
     }
     
+    @IBAction func cancelMemeEditor(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -157,13 +178,17 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     func save(_ memedImage: UIImage) {
         // Create the meme
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     
     func generateMemedImage() -> UIImage? {
         
-        self.navigationController?.setToolbarHidden(true, animated: false)
         toolBar.isHidden = true
+        navigationBar.isHidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -171,8 +196,8 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        self.navigationController?.setToolbarHidden(false, animated: false)
         toolBar.isHidden = false
+        navigationBar.isHidden = false
         
         return memedImage
     }
